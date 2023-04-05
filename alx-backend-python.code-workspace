@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "0x00-python_variable_annotations"
+		},
+		{
+			"path": "0x01-python_async_function"
+		},
+		{
+			"path": "0x02-python_async_comprehension"
+		}
+	],
+	"settings": {}
+}
