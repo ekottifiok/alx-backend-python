@@ -7,7 +7,9 @@ from typing import AsyncIterator
 
 
 async def async_generator() -> AsyncIterator[float]:
-    """Write a coroutine called async_generator that takes no arguments."""
+    """
+    Write a coroutine called async_generator that takes no arguments.
+    """
     for _ in range(10):
         await sleep(1)
         yield random() * 10
