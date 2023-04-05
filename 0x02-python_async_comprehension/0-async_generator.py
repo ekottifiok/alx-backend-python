@@ -3,10 +3,10 @@
 """
 from asyncio import sleep
 from random import random
-from typing import AsyncIterator
+from typing import Generator
 
 
-async def async_generator() -> AsyncIterator[float]:
+async def async_generator() -> Generator[float, None, None]:
     """
     Write a coroutine called async_generator that takes no arguments.
     """
