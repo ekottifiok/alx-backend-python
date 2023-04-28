@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+"""Test Client module for testing"""
 from unittest import TestCase
 from unittest.mock import (
     Mock,
