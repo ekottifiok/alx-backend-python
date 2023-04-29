@@ -116,7 +116,7 @@ class TestGetJson(TestCase):
             patched_req.assert_called_once_with(test_url)
 
 
-class TestClass:
+class TestMemoize(TestCase) :
 
     def test_memoize(self) -> None:
         """Tests `memoize`'s output."""

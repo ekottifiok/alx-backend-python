@@ -1,19 +1,18 @@
 #!/usr/bin/env python3
 """Test Client module for testing"""
 from unittest import TestCase
+from fixtures import TEST_PAYLOAD
+from parameterized import parameterized, parameterized_class
+from requests import HTTPError
+from client import GithubOrgClient
+from typing import Dict
 from unittest.mock import (
     Mock,
     PropertyMock,
     patch,
     MagicMock
 )
-from parameterized import parameterized, parameterized_class
-from requests import HTTPError
-from client import GithubOrgClient
-from typing import (
-    Dict
-)
-from fixtures import TEST_PAYLOAD
+
 
 API = "https://api.github.com/"
 
@@ -141,6 +140,7 @@ class TestGithubOrgClient(TestCase):
 ])
 class TestIntegrationGithubOrgClient(TestCase):
     """Performs integration tests for the `GithubOrgClient` class."""
+
     @classmethod
     def setUpClass(cls) -> None:
         """Sets up class fixtures before running tests."""
@@ -158,14 +158,14 @@ class TestIntegrationGithubOrgClient(TestCase):
         cls.get_patcher.start()
 
     def test_public_repos(self) -> None:
-        """Tests the `public_repos` method."""
+        """Tests the method."""
         self.assertEqual(
             GithubOrgClient("google").public_repos(),
             self.expected_repos,
         )
 
     def test_public_repos_with_license(self) -> None:
-        """Tests the `public_repos` method with a license."""
+        """Tests the method with a license."""
         self.assertEqual(
             GithubOrgClient("google").public_repos(license="apache-2.0"),
             self.apache2_repos,
@@ -173,5 +173,5 @@ class TestIntegrationGithubOrgClient(TestCase):
 
     @classmethod
     def tearDownClass(cls) -> None:
-        """Removes the class fixtures after running all tests."""
+        """tears down the class after running all tests."""
         cls.get_patcher.stop()
