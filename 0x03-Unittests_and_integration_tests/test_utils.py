@@ -26,14 +26,15 @@ def mocked_requests_get(*args, **kwargs):
     """
     class MockResponse:
         """the mock response
-        """        
+        """
+
         def __init__(self, json_data, status_code) -> None:
             """initializing the MockResponse
 
             Args:
                 json_data (_type_): _description_
                 status_code (_type_): _description_
-            """            
+            """
             self.json_data = json_data
             self.status_code = status_code
 
@@ -116,17 +117,22 @@ class TestGetJson(TestCase):
             patched_req.assert_called_once_with(test_url)
 
 
-class TestMemoize(TestCase) :
+class TestMemoize(TestCase):
+    """tests the memoize function
+
+    Args:
+        TestCase (TestCase): _description_
+    """
 
     def test_memoize(self) -> None:
         """Tests `memoize`'s output."""
 
         class TestClass:
-            """Test class to handle the methods
+            """Test class to handle certain methods
             """
 
             def a_method(self) -> int:
-                """returns an int
+                """returns a number
 
                 Returns:
                     int: 42
