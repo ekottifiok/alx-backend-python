@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Test Client module for testing"""
+"""
+Test Client module for testing
+"""
 from unittest import TestCase
 from fixtures import TEST_PAYLOAD
 from parameterized import parameterized, parameterized_class
@@ -64,7 +66,11 @@ class TestGithubOrgClient(TestCase):
 
     @patch("client.get_json")
     def test_public_repos(self, mock_get_json: MagicMock) -> None:
-        """Tests the `public_repos` method."""
+        """Tests the `public_repos` method.
+
+        Args:
+            mock_get_json (MagicMock): the mocker
+        """
         test_payload = {
             'repos_url': "https://api.github.com/users/google/repos",
             'repos': [
@@ -123,7 +129,7 @@ class TestGithubOrgClient(TestCase):
         ({'license': {'key': "bsl-1.0"}}, "bsd-3-clause", False),
     ])
     def test_has_license(self, repo: Dict, key: str, expected: bool) -> None:
-        """Tests the `has_license` method."""
+        """Tests the `has_license` method. to ensure it is expected"""
         self.assertEqual(
             GithubOrgClient("test").has_license(repo, key),
             expected
@@ -139,11 +145,22 @@ class TestGithubOrgClient(TestCase):
     },
 ])
 class TestIntegrationGithubOrgClient(TestCase):
-    """Performs integration tests for the `GithubOrgClient` class."""
+    """Performs integration tests for the `GithubOrgClient` class.
+
+    Args:
+        TestCase (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """    """"""
 
     @classmethod
     def setUpClass(cls) -> None:
-        """Sets up class fixtures before running tests."""
+        """
+        Sets up class fixtures before running tests.
+        and doesn't return anything
+
+        """
         route_payload = {
             'https://api.github.com/orgs/google': cls.org_payload,
             'https://api.github.com/orgs/google/repos': cls.repos_payload,
