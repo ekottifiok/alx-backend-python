@@ -103,7 +103,7 @@ class TestGetJson(TestCase):
         test_url: str,
         test_payload: Dict
     ) -> None:
-        """_summary_
+        """tests the get_json
 
         Args:
             test_url (str): _description_
@@ -125,7 +125,11 @@ class TestMemoize(TestCase):
     """
 
     def test_memoize(self) -> None:
-        """Tests `memoize`'s output."""
+        """Tests `memoize`'s output.
+
+        Returns:
+            _type_: _description_
+        """        """"""
 
         class TestClass:
             """Test class to handle certain methods
