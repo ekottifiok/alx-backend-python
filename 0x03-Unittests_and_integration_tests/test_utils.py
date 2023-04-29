@@ -19,8 +19,21 @@ from typing import (
 
 
 def mocked_requests_get(*args, **kwargs):
+    """_summary_
+
+    Returns:
+        _type_: _description_
+    """
     class MockResponse:
-        def __init__(self, json_data, status_code):
+        """the mock response
+        """        
+        def __init__(self, json_data, status_code) -> None:
+            """initializing the MockResponse
+
+            Args:
+                json_data (_type_): _description_
+                status_code (_type_): _description_
+            """            
             self.json_data = json_data
             self.status_code = status_code
 
